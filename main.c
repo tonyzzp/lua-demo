@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
-#include <sys/time.h>
 #include <memory.h>
 #include "lua/lauxlib.h"
 #include "lua/lualib.h"
@@ -11,10 +9,6 @@ int luaopen_mylib(lua_State *L);
 int main(int argn, char **argv)
 {
     printf("hello\n");
-    struct timespec spec;
-    clock_gettime(0, &spec);
-    printf("%d, %d\n", spec.tv_sec, spec.tv_nsec);
-    printf("%p\n", gettimeofday);
 
     lua_State *L = luaL_newstate();
     luaL_openlibs(L);

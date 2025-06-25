@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10.0)
-project(cpp-demo VERSION 0.1.0 LANGUAGES C)
+project(lua-demo VERSION 0.1.0 LANGUAGES C)
 
 add_executable(
-    cpp-demo
+    lua-demo
     main.c
     lua/lapi.c
     lua/lauxlib.c
@@ -37,3 +37,8 @@ add_executable(
     lua/lbaselib.c
     lua/ldump.c
 )
+
+
+if(UNIX AND NOT APPLE)
+    target_link_libraries(lua-demo PRIVATE m)
+endif()
